@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Requisitos do Sistema</title>
+
+  <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Conte-nos sobre o seu PC</h1>
+
+    <div style="display: flex;">
+        <img src="images/plataforma.jpg" id="platform_icon">
+        <label for="platform">PLATAFORMA</label>
+    </div>
+    <select id="platform">
+      <option value="windows">Windows</option>
+      <option value="mac">Mac</option>
+      <option value="linux">Linux</option>
+    </select>
+
+    <div style="display: flex;">
+        <img src="images/cpu.png" id="cpu_icon">
+        <label for="processor">PROCESSADOR</label>
+    </div>
+    
+    <input type="text" id="processor" placeholder="Eg: Intel Core i5-6600K">
+
+    <div style="display: flex;">
+        <img src="images/gpu.jpg" id="gpu_icon">
+        <label for="graphics">PLACA DE VÍDEO</label>
+    </div>
+    
+    <input type="text" id="graphics" placeholder="Eg: NVIDIA GeForce GTX 1070">
+
+    <div style="display: flex;">
+        <img src="images/memory.png" id="memory_icon">
+        <label for="memory">MEMÓRIA RAM</label>
+    </div>
+    
+    <select id="memory">
+      <option value="4">8 GB</option>
+      <option value="8" selected>16 GB</option>
+      <option value="16">32 GB</option>
+      <option value="32">64 GB</option>
+    </select>
+
+    <button onclick="checkGames()">Que jogos meu PC roda?</button>
+    <button onclick="ratePC()">Avalie meu PC</button>
+  </div>
+
+  <script>
+    function checkGames() {
+      const platform = document.getElementById("platform").value;
+      const processor = document.getElementById("processor").value;
+      const graphics = document.getElementById("graphics").value;
+      const memory = document.getElementById("memory").value;
+      console.log("Checking games for:", platform, processor, graphics, memory);
+    }
+
+    function ratePC() {
+      console.log("Avaliando PC...");
+    }
+  </script>
+</body>
+</html>
