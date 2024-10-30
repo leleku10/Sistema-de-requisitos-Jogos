@@ -1,28 +1,31 @@
-const sequelize = require('sequelize');
-const database = require('../db');
+/*const { DataTypes } = require('sequelize');
+const database  = require('../db'); 
+
+console.log("erro:", database);
 
 const User = database.define('user', {
     id: {
-        type: sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-
     nome: {
-        type: sequelize.STRING(150),
+        type: DataTypes.STRING(150),
         allowNull: false,
     },
-
     email: {
-        type: sequelize.STRING(150),
+        type: DataTypes.STRING(150),
         allowNull: false,
+        unique: true,
+        validate: {
+            isEmail: true
+        }
     },
-
     password: {
-        type: sequelize.STRING(45)
+        type: DataTypes.STRING(45),
+        allowNull: false
     }
+})
 
-});
-
-module.exports = User;
+module.exports = User;*/
