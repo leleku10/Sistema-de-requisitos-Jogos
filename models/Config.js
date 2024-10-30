@@ -1,16 +1,17 @@
-const sequelize = require('sequelize');
+/*const {DataTypes} = require('sequelize');
 const database = require('../db');
+const User = require('../models/User');
 
 const Config = database.define('config', {
     id: {
-        type: sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
 
     userId: {
-        type: sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         references: {
             model: User,
             key: 'id',
@@ -21,24 +22,24 @@ const Config = database.define('config', {
     },
 
     processador: {
-        type: sequelize.STRING(150),
+        type: DataTypes.STRING(150),
         allowNull: false,
     },
 
     memoria: {
-        type: sequelize.STRING(150),
+        type: DataTypes.STRING(150),
         allowNull: false,
     },
 
     armazenamento: {
-        type: sequelize.STRING(150),
+        type: DataTypes.STRING(150),
         allowNull: false,
     },
 
     placaVideo: {
-        type: sequelize.STRING(150),
+        type: DataTypes.STRING(150),
         allowNull: false,
     }
 
 
-})
+})*/
