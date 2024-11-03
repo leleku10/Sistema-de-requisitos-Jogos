@@ -11,6 +11,7 @@
   "license": "ISC",
   "description": "Backend sistema de requisitos de jogos",
   "dependencies": {
+    "aula02": "file:",
     "mysql2": "^3.11.3",
     "pg": "^8.13.1",
     "pg-hstore": "^2.3.4",
