@@ -4,6 +4,9 @@ const userRoute = require('./routes/userRoute');
 const gameRoute = require('./routes/gameRoute');
 const configRoute = require('./routes/configRoute');
 const comparasionRoute = require('./routes/comparasionRoute');
+const token = require('./services/authService');
+
+token();
 
 const app = express();
 
