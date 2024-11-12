@@ -2,6 +2,9 @@ const express = require('express');
 const { connectDB } = require('./db');
 const userRoute = require('./routes/userRoute');
 const gameRoute = require('./routes/gameRoute');
+const configRoute = require('./routes/configRoute');
+const authRoute = require('./routes/authRoute');
+const comparasionRoute = require('./routes/comparasionRoute');
 
 const app = express();
 
@@ -15,6 +18,9 @@ app.use(express.json());
 
 app.use('/', userRoute);
 app.use('/', gameRoute);
+app.use('/', configRoute);
+app.use('/', comparasionRoute);
+app.use('/', authRoute);
 
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
