@@ -5,23 +5,22 @@ body {
     background-color: #f0f2f5;
 }
 
+#logo{
+    font-family: "logo_font";
+    margin-right: 200px;
+    margin-left: 50px;
+    color: blueviolet;
+}
+
+@font-face {
+    font-family:"logo_font" ;
+    src: url("Fontes/Font_Outfit_styles/Outfit-Bold.ttf");
+ }
+
 @font-face {
     font-family:"font_header_nav_a" ;
-    src: url("BarlowCondensed-ExtraLight.ttf");
+    src: url("Fontes/BarlowCondensed-ExtraLight.ttf");
  }
-
- @font-face {
-    font-family:"font-logo" ;
-    src: url("BarlowCondensed-ExtraLight.ttf");
- }
-
-
-
-
-h1{
-    color: blueviolet;
-
-}
 
 .container {
     display: flex;
@@ -41,14 +40,13 @@ header {
 
 header nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
 header nav a {
     text-decoration: none;
     color: #333;
-    margin-right: 2rem;
+    margin-right: 450px;
     font-weight: 600;
     font-family: 'font_header_nav_a';
     font-size: 25px;
