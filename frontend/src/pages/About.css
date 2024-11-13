@@ -7,17 +7,17 @@
 
 @font-face {
     font-family:"logo_font" ;
-    src: url("Fontes/Font_Outfit_styles/Outfit-Bold.ttf");
+    src: url("../../Fontes/Font_Outfit_styles/Outfit-Bold.ttf");
  }
 
 @font-face {
     font-family:"font_header_nav_a" ;
-    src: url("Fontes/BarlowCondensed-ExtraLight.ttf");
+    src: url("../../Fontes/BarlowCondensed-ExtraLight.ttf");
  }
 
  @font-face {
     font-family:"body_font" ;
-    src: url("Fontes/Font_Outfit_styles/Outfit-Regular.ttf");
+    src: url("../../Fontes/Font_Outfit_styles/Outfit-Regular.ttf");
  }
 
  header {

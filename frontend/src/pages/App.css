@@ -1,0 +1,103 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+}
+
+#logo{
+  font-family: "logo_font";
+  margin-right: 200px;
+  margin-left: 50px;
+  color: blueviolet;
+}
+
+@font-face {
+  font-family:"logo_font" ;
+  src: url("../../Fontes/Font_Outfit_styles/Outfit-Bold.ttf");
+}
+
+@font-face {
+  font-family:"font_header_nav_a" ;
+  src: url("../../Fontes/BarlowCondensed-ExtraLight.ttf");
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+header {
+  background-color: #fff;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  padding-top: 0;
+  user-select: none;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+}
+
+header nav a {
+  text-decoration: none;
+  color: #333;
+  margin-right: 450px;
+  font-weight: 600;
+  font-family: 'font_header_nav_a';
+  font-size: 25px;
+}
+
+header nav a:last-child {
+  margin-right: 0;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.game-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+}
+
+.game-card:hover{
+  transform: translateY(-7px);
+  box-shadow: 0px 10px 10px black;
+}
+
+.game-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.game-card .info {
+  padding: 1rem;
+  text-align: center;
+}
+
+.game-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.game-card p {
+  margin-bottom: 0;
+  color: #666;
+}
+
+a {
+  text-decoration: none;
+}
