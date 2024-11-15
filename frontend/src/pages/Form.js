@@ -1,73 +1,138 @@
-import './Form.css';
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import About from './About';
+import "./Form.css";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import About from "./About";
 
 function Form() {
-    const checkGames = () => {
-        const platform = document.getElementById("platform").value;
-        const processor = document.getElementById("processor").value;
-        const graphics = document.getElementById("graphics").value;
-        const memory = document.getElementById("memory").value;
-        console.log("Checking games for:", platform, processor, graphics, memory);
+  // Definindo o estado para os campos do formulário
+  const [platform, setPlatform] = useState("windows");
+  const [processor, setProcessor] = useState("");
+  const [graphics, setGraphics] = useState("");
+  const [memory, setMemory] = useState("8");
+
+  // Função para enviar a configuração
+  const sendConfiguration = () => {
+    const configData = {
+      platform,
+      processor,
+      graphics,
+      memory,
     };
 
-    const ratePC = () => {
-        console.log("Avaliando PC...");
-    };
+    // Envia a solicitação POST para a rota /configs
+    fetch("/configs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(configData),
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log("Configuração criada com sucesso!");
+        } else {
+          console.error("Erro ao criar a configuração.");
+        }
+      })
+      .catch((error) => console.error("Erro na solicitação:", error));
+  };
 
-    return (
-        <div>
-            <header>
-                <nav>
-                    <h1 id="logo">CanMyPCRun</h1>
-                    <Link to="#">Jogos</Link>
-                    <Link to="/About">Sobre</Link>
-                    <Link to="#">Recursos</Link>
-                </nav>
-            </header>
+  // Função para verificar os jogos
+  const checkGames = () => {
+    console.log("Checando jogos...");
+    sendConfiguration(); // Chama a função de envio de configuração
+  };
 
-            <div className="container">
-                <h1>Conte-nos sobre o seu PC</h1>
+  // Função para avaliar o PC
+  const ratePC = () => {
+    console.log("Avaliando PC...");
+    sendConfiguration(); // Chama a função de envio de configuração
+  };
 
-                <div style={{ display: 'flex' }}>
-                    <img src="/images/plataforma.jpg" id="platform_icon" alt="Ícone de Plataforma" />
-                    <label htmlFor="platform">PLATAFORMA</label>
-                </div>
-                <select id="platform">
-                    <option value="windows">Windows</option>
-                    <option value="mac">Mac</option>
-                    <option value="linux">Linux</option>
-                </select>
+  return (
+    <div className="wrapper">
+      <label className="switch">
+        <div className="flip-card__front">
+          <div className="title">Conte-nos sobre o seu PC</div>
+          <form className="flip-card__form" action="">
+            <label htmlFor="platform">SISTEMA OPERACIONAL</label>
+            <input
+              list="platform-options"
+              id="platform" // Este ID agora é único
+              name="platform"
+              placeholder="Exemplo: Windows"
+              value={platform} // Usando o estado para controlar o valor
+              onChange={(e) => setPlatform(e.target.value)} // Atualizando o estado
+            />
+            <datalist id="platform-options">
+              <option value="Windows" />
+              <option value="Linux" />
+              <option value="MacOS" />
+            </datalist>
 
-                <div style={{ display: 'flex' }}>
-                    <img src="/images/cpu.png" id="cpu_icon" alt="Ícone de CPU" />
-                    <label htmlFor="processor">PROCESSADOR</label>
-                </div>
-                <input type="text" id="processor" placeholder="Exemplo: Intel Core i5-6600K" />
+            <label htmlFor="processor">PROCESSADOR</label>
+            <input
+              list="processor-options"
+              id="processor" // Este ID agora é único
+              name="processor"
+              placeholder="Exemplo: Intel Core i5-6600K"
+              value={processor} // Usando o estado para controlar o valor
+              onChange={(e) => setProcessor(e.target.value)} // Atualizando o estado
+            />
+            <datalist id="processor-options">
+              <option value="Intel Core i5-6600K" />
+              <option value="Intel Core i7-9700K" />
+              <option value="AMD Ryzen 5 3600" />
+              <option value="AMD Ryzen 7 3700X" />
+              <option value="Intel Core i9-11900K" />
+            </datalist>
 
-                <div style={{ display: 'flex' }}>
-                    <img src="/images/gpu.jpg" id="gpu_icon" alt="Ícone de GPU" />
-                    <label htmlFor="graphics">PLACA DE VÍDEO</label>
-                </div>
-                <input type="text" id="graphics" placeholder="Exemplo: NVIDIA GeForce GTX 1070" />
+            <label htmlFor="graphics">PLACA DE VÍDEO</label>
+            <input
+              list="graphicCards-options"
+              id="graphics" // Este ID agora é único
+              name="graphics"
+              placeholder="Exemplo: NVIDIA RTX 3060"
+              value={graphics} // Usando o estado para controlar o valor
+              onChange={(e) => setGraphics(e.target.value)} // Atualizando o estado
+            />
+            <datalist id="graphicCards-options">
+              <option value="NVIDIA RTX 3060" />
+              <option value="Intel Core i7-9700K" />
+              <option value="AMD Ryzen 5 3600" />
+              <option value="AMD Ryzen 7 3700X" />
+              <option value="Intel Core i9-11900K" />
+            </datalist>
 
-                <div style={{ display: 'flex' }}>
-                    <img src="/images/memory.png" id="memory_icon" alt="Ícone de Memória" />
-                    <label htmlFor="memory">MEMÓRIA RAM</label>
-                </div>
-                <select id="memory">
-                    <option value="4">8 GB</option>
-                    <option value="8" selected>16 GB</option>
-                    <option value="16">32 GB</option>
-                    <option value="32">64 GB</option>
-                </select>
+            <label htmlFor="memory">MEMÓRIA RAM</label>
+            <input
+              list="memory-options"
+              id="memory" // Este ID agora é único
+              name="memory"
+              placeholder="Exemplo: 16GB"
+              value={memory} // Usando o estado para controlar o valor
+              onChange={(e) => setMemory(e.target.value)} // Atualizando o estado
+            />
+            <datalist id="memory-options">
+              <option value="4GB" />
+              <option value="8GB" />
+              <option value="16GB" />
+              <option value="32GB" />
+            </datalist>
 
-                <button onClick={checkGames}>Que jogos meu PC roda?</button>
-                <button onClick={ratePC}>Avalie meu PC</button>
+            <div className="buttons">
+              <button type="button" id="btn-verify" onClick={checkGames}>
+                Verificar
+              </button>
+              <button type="button" id="btn-pcRoda" onClick={ratePC}>
+                Que jogos meu PC roda?
+              </button>
             </div>
+          </form>
         </div>
-    );
+      </label>
+    </div>
+  );
 }
 
 export default Form;

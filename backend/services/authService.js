@@ -2,7 +2,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const mysql = require('mysql2/promise');
-const { jwtSecret } = require('../config/jwtConfig');
+const jwtConfig = require('../config/jwtConfig');
 const dbConfig = require('../config/dbConfig');
 
 // Função para criar a conexão com o banco de dados
@@ -29,7 +29,7 @@ const verifyPassword = (password, hashedPassword) => {
 // Função para gerar o token JWT
 const generateToken = (user) => {
   const payload = { id: user.id, email: user.email };
-  const token = jwt.sign(payload, jwtSecret, { expiresIn: '1h' });
+  const token = jwt.sign(payload, jwtConfig, { expiresIn: '1h' });
   return token;
 };
 
