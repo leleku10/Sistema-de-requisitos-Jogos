@@ -1,52 +1,27 @@
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f2f5;
-}
-
-#logo{
-  font-family: "logo_font";
-  margin-right: 200px;
-  margin-left: 50px;
-  color: blueviolet;
-}
-
-@font-face {
-  font-family:"logo_font" ;
-  src: url("../../Fontes/Font_Outfit_styles/Outfit-Bold.ttf");
-}
-
-@font-face {
-  font-family:"font_header_nav_a" ;
-  src: url("../../Fontes/BarlowCondensed-ExtraLight.ttf");
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
+/* Garantindo que o box-sizing seja aplicado corretamente */
+* {
+  box-sizing: border-box;
 }
 
 header {
   background-color: #fff;
   padding: 1rem 2rem;
-  border-bottom: 1px solid #ddd;
   width: 100%;
-  padding-top: 0;
   user-select: none;
 }
 
+/* Borda preta agora aplicada diretamente ao nav */
 header nav {
   display: flex;
   align-items: center;
+  border-bottom: 2px solid black; /* Linha preta de 2px abaixo da navbar */
+  padding-bottom: 10px; /* Ajuste do espaço abaixo da navbar */
 }
 
 header nav a {
   text-decoration: none;
   color: #333;
-  margin-right: 450px;
+  margin-right: 30px;  /* Ajuste da margem */
   font-weight: 600;
   font-family: 'font_header_nav_a';
   font-size: 25px;
@@ -55,6 +30,8 @@ header nav a {
 header nav a:last-child {
   margin-right: 0;
 }
+
+
 
 .game-grid {
   display: grid;

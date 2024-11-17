@@ -1,22 +1,5 @@
 /* From Uiverse.io by andrew-demchenk0 */ 
 
-.wrapper {
-    --input-focus: #2d8cf0;
-    --font-color: #323232;
-    --font-color-sub: #666;
-    --bg-color: #fff;
-    --bg-color-alt: #666;
-    --main-color: #323232;
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    width: 100%; /* Garante que a largura ocupe toda a tela */
-    height: 100vh; /* Ocupa toda a altura da janela */
-    box-sizing: border-box;
-}
-
-
-
   button{
     max-width: 200px;
     margin-right: 50px;
@@ -116,6 +99,21 @@
     padding-left: 100px;
     padding-right: 100px;
     padding-bottom: 50px;
+
+    --input-focus: #2d8cf0;
+    --font-color: #323232;
+    --font-color-sub: #666;
+    --bg-color: #fff;
+    --bg-color-alt: #666;
+    --main-color: #323232;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 100%; /* Garante que a largura ocupe toda a tela */
+    height: 100vh; /* Ocupa toda a altura da janela */
+    box-sizing: border-box;
+
+    
   }
   
   .flip-card__back {

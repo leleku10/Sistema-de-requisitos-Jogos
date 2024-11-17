@@ -1,0 +1,99 @@
+/* Container específico do Acess */
+.acess-container {
+  border: solid 1px #8d8d8d;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #fff;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
+/* Título do formulário */
+.acess-container .heading {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+/* Formulário */
+.acess-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Botão */
+.acess-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border-radius: 10px;
+  border: solid 1px #1034aa;
+  border-bottom: solid 1px #90c2ff;
+  background: linear-gradient(135deg, #0034de, #006eff);
+  color: #fff;
+  font-weight: bolder;
+  transition: all 0.2s ease;
+  box-shadow: 0px 2px 3px #000d3848, inset 0px 4px 5px #0070f0,
+    inset 0px -4px 5px #002cbb;
+  cursor: pointer;
+}
+
+.acess-btn:active {
+  box-shadow: inset 0px 4px 5px #0070f0, inset 0px -4px 5px #002cbb;
+  transform: scale(0.995);
+}
+
+/* Campos de entrada */
+.acess-input-field {
+  position: relative;
+}
+
+.acess-input-field input {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: solid 1px #8d8d8d;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.acess-input-field label {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8d8d8d;
+  transition: all 0.3s ease;
+}
+
+.acess-input-field input:focus ~ label,
+.acess-input-field input:valid ~ label {
+  transform: translateY(-1.8rem) translateX(-10px) scale(0.8);
+  background-color: #fff;
+  padding: 0px 5px;
+  color: #0034de;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Texto de conta (ex.: "New here? Create Account") */
+.acess-text {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.acess-text span {
+  font-weight: bold;
+  color: #0000ff;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.acess-text span:hover {
+  color: #0056b3;
+}
