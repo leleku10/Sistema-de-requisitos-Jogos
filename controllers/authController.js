@@ -1,5 +1,6 @@
 const authService = require('../services/authService');
 
+
 const Authenticate = {
 
      login: async(req, res) => {
@@ -28,4 +29,4 @@ const Authenticate = {
     }
 };
 
-module.exports = Authenticate;
+modules.exports = {Authenticate};
