@@ -1,0 +1,61 @@
+#logo{
+    font-family: "logo_font";
+    margin-right: 200px;
+    margin-left: 50px;
+    color: blueviolet;
+}
+
+@font-face {
+    font-family:"logo_font" ;
+    src: url("../../Fontes/Font_Outfit_styles/Outfit-Bold.ttf");
+ }
+
+@font-face {
+    font-family:"font_header_nav_a" ;
+    src: url("../../Fontes/BarlowCondensed-ExtraLight.ttf");
+ }
+
+ @font-face {
+    font-family:"body_font" ;
+    src: url("../../Fontes/Font_Outfit_styles/Outfit-Regular.ttf");
+ }
+
+ header {
+    background-color: #fff;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    padding-top: 0;
+    user-select: none;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #333;
+    margin-right: 450px;
+    font-weight: 600;
+    font-family: 'font_header_nav_a';
+    font-size: 25px;
+}
+
+header nav a:last-child {
+    margin-right: 0;
+}
+
+#text_about{
+    width: 1000px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    font-family: "body_font";
+}
