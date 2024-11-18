@@ -47,28 +47,6 @@ const userController = {
         }
     },
 
-    createUser: async (req, res) => {
-        const { nome, email, password } = req.body;
-        let connection;
-
-        try {
-            connection = await mysql.createConnection(connectionConfig);
-            const [result] = await connection.execute(
-                'INSERT INTO users (nome, email, password) VALUES (?, ?, ?)',
-                [nome, email, password]
-            );
-            const newUser = { id: result.insertId, nome, email, password };
-            res.status(201).json(newUser);
-        } catch (error) {
-            console.log("Erro ao criar usuário", error);
-            res.status(500).json({ error: 'Erro ao criar usuário' });
-        } finally {
-            if (connection) {
-                await connection.end();
-            }
-        }
-    },
-
     updateUser: async (req, res) => {
         const { id } = req.params;
         const { nome, email, password } = req.body;

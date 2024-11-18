@@ -4,6 +4,7 @@ const gameController = require('../controllers/gameController');
 const router = Router();
 
 router.get("/game", gameController.getAllGames);
+router.get("/game/:id", gameController.getGameById);
 router.post("/game", gameController.createGame);
 router.put("/game/:id", gameController.updateGame);
 router.delete("/game/:id", gameController.deleteGame);

@@ -1,13 +1,20 @@
 // services/authService.js
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const mysql = require('mysql2/promise');
-const { jwtSecret } = require('../config/jwtConfig');
-const dbConfig = require('../config/dbConfig');
+const { jwtSecret } = require('../jwtConfig');
+const dbConfig = require('../db');
+
+const connectionConfig = {
+  host: 'localhost',
+  user: 'root',
+  password: '123@abc',
+  database: 'banco01'
+};
 
 // Função para criar a conexão com o banco de dados
 const getConnection = async () => {
-  const connection = await mysql.createConnection(dbConfig);
+  const connection = await mysql.createConnection(connectionConfig);
   return connection;
 };
 
@@ -23,7 +30,7 @@ const findUserByEmail = async (email) => {
 
 // Função para verificar se a senha fornecida é válida
 const verifyPassword = (password, hashedPassword) => {
-  return bcrypt.compareSync(password, hashedPassword);
+  return bcrypt.compare(password, hashedPassword);
 };
 
 // Função para gerar o token JWT
@@ -50,7 +57,7 @@ const authenticateUser = async (email, password) => {
 };
 
 // Função de registro: cria um novo usuário com email e senha
-const registerUser = async (email, password) => {
+const registerUser = async (nome,email, password) => {
   // Verifica se o email já está registrado
   const existingUser = await findUserByEmail(email);
   if (existingUser) {
@@ -64,8 +71,8 @@ const registerUser = async (email, password) => {
 
   // Insere o novo usuário no banco de dados
   const [result] = await connection.execute(
-    'INSERT INTO users (email, password) VALUES (?, ?)', 
-    [email, hashedPassword]
+    'INSERT INTO users (nome, email, password) VALUES (?, ?, ?)',  
+    [nome, email, hashedPassword]
   );
 
   connection.end();

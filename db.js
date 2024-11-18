@@ -5,7 +5,8 @@ const connectionConfig = {
     host: 'localhost',
     user: 'root',
     password: '123@abc',
-    database: 'banco01'
+    database: 'banco01',
+    charset: 'utf8mb4'
 };
 
 const createTables = async (connection) => {
@@ -22,6 +23,7 @@ const createTables = async (connection) => {
         CREATE TABLE IF NOT EXISTS games (
             id INT AUTO_INCREMENT PRIMARY KEY,
             nome VARCHAR(255) NOT NULL,
+            urlImg VARCHAR(255) NOT NULL,
             processador VARCHAR(255) NOT NULL,
             memoria VARCHAR(255) NOT NULL,
             armazenamento VARCHAR(255) NOT NULL,
@@ -68,16 +70,19 @@ const createDefaultUsers = async (connection) => {
 // Função para criar jogos padrão
 const createDefaultGames = async (connection) => {
     const defaultGames = [
-        {nome: 'Red Dead Redemption 2', processador: 'Ryzen 5', memoria: '8Gb', armazenamento: '500Gb', placaVideo: 'Nvidia Rtx 4060'},
-        // Adicione mais jogos conforme necessário
+        {nome: 'Red Dead Redemption 2', urlImg:'https://res.cloudinary.com/ddwpsulcv/image/upload/v1731900385/rdr_du3fiw.png' , processador: 'Ryzen 5', memoria: '8Gb', armazenamento: '500Gb', placaVideo: 'Nvidia Rtx 4060'},
+        {nome: 'Battlegrounds', urlImg:'https://res.cloudinary.com/ddwpsulcv/image/upload/v1731900389/pubg_jzvowd.jpg' , processador: 'Ryzen 5', memoria: '8Gb', armazenamento: '500Gb', placaVideo: 'Nvidia Rtx 4060'},
+        {nome: 'DragonAge The Veilguard', urlImg:'https://res.cloudinary.com/ddwpsulcv/image/upload/v1731900384/dragon-age_juerk4.jpg' , processador: 'Ryzen 5', memoria: '8Gb', armazenamento: '500Gb', placaVideo: 'Nvidia Rtx 4060'},
+        {nome: 'Apex Legends', urlImg:'https://res.cloudinary.com/ddwpsulcv/image/upload/v1731900390/apex_eo2dvc.png' , processador: 'Ryzen 5', memoria: '8Gb', armazenamento: '500Gb', placaVideo: 'Nvidia Rtx 4060'},
+        {nome: 'Ark Survival Evolved', urlImg:'https://res.cloudinary.com/ddwpsulcv/image/upload/v1731900390/apex_eo2dvc.png' , processador: 'Ryzen 5', memoria: '8Gb', armazenamento: '500Gb', placaVideo: 'Nvidia Rtx 4060'},
     ];
 
     for (const gameData of defaultGames) {
         const [rows] = await connection.execute('SELECT * FROM games WHERE nome = ?', [gameData.nome]);
 
         if (rows.length === 0) {
-            await connection.execute('INSERT INTO games (nome, processador, memoria, armazenamento, placaVideo) VALUES (?, ?, ?, ?, ?)', 
-                [gameData.nome, gameData.processador, gameData.memoria, gameData.armazenamento, gameData.placaVideo]);
+            await connection.execute('INSERT INTO games (nome, urlImg, processador, memoria, armazenamento, placaVideo) VALUES (?, ?, ?, ?, ?, ?)', 
+                [gameData.nome, gameData.urlImg, gameData.processador, gameData.memoria, gameData.armazenamento, gameData.placaVideo]);
             console.log(`Jogo ${gameData.nome} criado com sucesso!`);
         } else {
             console.log("O jogo já existe.");
